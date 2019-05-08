@@ -11,6 +11,7 @@ import { FileOpener } from '@ionic-native/file-opener';
 export class HomePage {
 
   private fileTransfer: FileTransferObject;
+  public downloadFile;
 
   constructor(public navCtrl: NavController, private transfer: FileTransfer, private file: File,
     private fileOpener: FileOpener) {
@@ -29,7 +30,8 @@ export class HomePage {
       console.log('download completed: ' + entry.toURL());
 
       // open downloaded file 
-      this.openFileHandler(entry.toURL());
+      this.downloadFile = entry.toURL();
+      //this.openFileHandler(entry.toURL());
     }, (error) => {
       //here logging an error. 
       console.log('download failed: ' + JSON.stringify(error));
@@ -42,8 +44,8 @@ export class HomePage {
     // this.download('Downloadimage.png', 'https://homepages.cae.wisc.edu/~ece533/images/airplane.png');
   }
 
-  openFileHandler(file) {
-    this.fileOpener.open(file, '')
+  openFileHandler() {
+    this.fileOpener.open(this.downloadFile, '')
       .then(() => console.log('File is opened'))
       .catch(e => console.log('Error opening file', e));
   }

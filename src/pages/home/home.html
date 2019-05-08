@@ -8,4 +8,10 @@
 
 <ion-content padding>
   <button (click)="downloadHandler()">Download File</button>
+<ion-footer *ngIf="downloadFile?.length > 0" class="footerStyle">
+  <div class="divStyle">
+    <p style="float: left">Download successful.</p>
+    <button (click)="openFileHandler()" class="buttonStyle">Open</button>
+  </div>
+</ion-footer>
 </ion-content>

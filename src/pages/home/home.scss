@@ -1,3 +1,14 @@
 page-home {
-
+.footerStyle{
+  background: grey;
+  .divStyle {
+    width: 100%;
+    .buttonStyle{
+      float: right;
+      bottom: 15px;
+      right: 10px;
+      position: absolute;
+    }
+  }
+}
 }
