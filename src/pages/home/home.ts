@@ -21,8 +21,10 @@ export class HomePage {
 
   public download(fileName, filePath) {
 
+    let url = encodeURI(filePath);
     this.fileTransfer = this.transfer.create();
-    this.fileTransfer.download(filePath, this.file.dataDirectory + fileName, true).then((entry) => {
+
+    this.fileTransfer.download(url, this.file.dataDirectory + fileName, true).then((entry) => {
       //here logging our success downloaded file path in mobile. 
       console.log('download completed: ' + entry.toURL());
 
@@ -37,7 +39,7 @@ export class HomePage {
 
   downloadHandler() {
     this.download('DownloadFile.pdf', 'http://www.africau.edu/images/default/sample.pdf');
-    //this.download('Downloadimage.png', 'https://homepages.cae.wisc.edu/~ece533/images/airplane.png');
+    // this.download('Downloadimage.png', 'https://homepages.cae.wisc.edu/~ece533/images/airplane.png');
   }
 
   openFileHandler(file) {
